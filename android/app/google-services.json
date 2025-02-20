@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1083020681392",
+    "project_id": "y-news-hbdwp",
+    "storage_bucket": "y-news-hbdwp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083020681392:android:04932bf20bc45445e99b75",
+        "android_client_info": {
+          "package_name": "com.hbdwp.y_news"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAxx9LugmjmEI4WJ-r8reht9kYA_NQgL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:y_news/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -12,6 +14,14 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         title: const Text('HomeView'),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                Get.offAllNamed(Routes.AUTH);
+              },
+              icon: const Icon(Icons.logout))
+        ],
       ),
       body: const Center(
         child: Text(

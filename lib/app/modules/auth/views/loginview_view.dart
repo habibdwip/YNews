@@ -33,7 +33,7 @@ class LoginView extends GetView<AuthController> {
                 authController.emailController.text = newValue!;
               },
             ),
-            Obx(() => TextField(
+            Obx(() => TextFormField(
                   controller: authController.passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
@@ -47,7 +47,17 @@ class LoginView extends GetView<AuthController> {
                       },
                     ),
                   ),
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (value!.trim().isEmpty || value == "") {
+                      return "Password can't be empty";
+                    }
+                    return null;
+                  },
                   obscureText: authController.isPasswordHidden.value,
+                  onSaved: (newValue) {
+                    authController.passwordController.text = newValue!;
+                  },
                 )),
             SizedBox(height: 20),
             Obx(() => authController.isLoading.value

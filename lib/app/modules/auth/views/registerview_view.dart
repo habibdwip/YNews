@@ -19,6 +19,18 @@ class RegisterView extends GetView<AuthController> {
             TextFormField(
               controller: authController.emailRegController,
               decoration: InputDecoration(labelText: 'Email'),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) {
+                if (value!.isEmpty || value == "") {
+                  return "Email can't be empty";
+                } else if (!value.trim().contains("@")) {
+                  return "Email not valid";
+                }
+                return null;
+              },
+              onSaved: (newValue) {
+                authController.emailRegController.text = newValue!;
+              },
             ),
             Obx(() => TextFormField(
                   controller: authController.passRegController,
@@ -34,7 +46,18 @@ class RegisterView extends GetView<AuthController> {
                       },
                     ),
                   ),
+                  validator: (value) {
+                    if (value!.trim().isEmpty || value == "") {
+                      return "Password can't be empty";
+                    } else if (value.trim().length < 6) {
+                      return "Password should more than 6 character";
+                    }
+                    return null;
+                  },
                   obscureText: authController.isPasswordHidden.value,
+                  onSaved: (newValue) {
+                    authController.passRegController.text = newValue!;
+                  },
                 )),
             SizedBox(height: 20),
             Obx(

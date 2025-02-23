@@ -23,9 +23,9 @@ class HomeView extends GetView<HomeController> {
               icon: const Icon(Icons.logout))
         ],
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'HomeView is working',
+          "Hello ${FirebaseAuth.instance.currentUser?.email}",
           style: TextStyle(fontSize: 20),
         ),
       ),
